@@ -4,22 +4,13 @@ namespace App\Model;
 
 class GeometryCalculator
 {
-    private $shapeA;
-    private $shapeB;
-
-    public function __construct($shapeA, $shapeB)
+    public static function calculateSumOfAreas($shapeA, $shapeB)
     {
-        $this->shapeA = $shapeA;
-        $this->shapeB = $shapeB;
+        return $shapeA->calculateSurface() + $shapeB->calculateSurface();
     }
 
-    public function calculateSumOfAreas()
+    public static function calculateSumOfDiameters($shapeA, $shapeB)
     {
-        return $this->shapeA->calculateSurface() + $this->shapeB->calculateSurface();
-    }
-
-    public function calculateSumOfDiameters()
-    {
-        return $this->shapeA->calculateCircumference() + $this->shapeB->calculateCircumference();
+        return $shapeA->calculateCircumference() + $shapeB->calculateCircumference();
     }
 }
